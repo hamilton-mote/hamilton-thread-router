@@ -1,13 +1,11 @@
 APPLICATION = openthread
 
 # If no BOARD is found in the environment, use this default:
-#BOARD ?= hamilton
-
-# These are the boards that OpenThread stack has been tested on
-BOARD_WHITELIST := hamilton samr21-xpro iotlab-m3 fox iotlab-a8-m3
+BOARD = hamilton
+BOARD_WHITELIST := hamilton
 
 # This has to be the absolute path to the RIOT base directory:
-RIOTBASE = /home/hskim/Desktop/RIOT-OS
+RIOTBASE = ../RIOT-OS
 
 # This is to set the proper programmer for board
 PROGRAMMER ?= jlink
@@ -67,8 +65,8 @@ ifneq (,$(filter hamilton,$(BOARD)))
   CFLAGS    += -DSENSOR_COMPUTOFFLOAD=1
   CFLAGS    += -DDMAC_ENABLE=0
   # Sensors
-  USEMODULE += saul_reg        # SAUL: sensor/actuator abstraction layer 
-  USEMODULE += auto_init_saul  
+  USEMODULE += saul_reg        # SAUL: sensor/actuator abstraction layer
+  USEMODULE += auto_init_saul
   USEMODULE += tmp006          # ambient temperature
   USEMODULE += hdc1000         # humidity and temperature
   USEMODULE += fxos8700        # acceleration and magnetic field
